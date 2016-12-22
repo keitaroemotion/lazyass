@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
 #npm install -g pulp bower # install pulp
-pulp init
+#pulp init
+bower install purescript-math --save
 
 
 
