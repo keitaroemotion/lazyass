@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+
+import sys
+import subprocess
+
+
+# this scripts can open pscript search result
+console_outputs = subprocess.check_output(["git", "remote", "-v"]).split(' ')
+[subprocess.call(["open", url]) for url
+    in [(lambda y: y.split("\t"))(tokens)[1] for tokens
+        in console_outputs if "git" in tokens]]  
