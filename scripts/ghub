@@ -3,9 +3,12 @@
 import sys
 import subprocess
 
+def replace(url):
+  return url.replace("git@", "https://").replace(".git","").replace(":omise", "/omise")
 
 # this scripts can open pscript search result
 console_outputs = subprocess.check_output(["git", "remote", "-v"]).split(' ')
-[subprocess.call(["open", url]) for url
+[subprocess.call(["open", replace(url)]) for url
     in [(lambda y: y.split("\t"))(tokens)[1] for tokens
         in console_outputs if "git" in tokens]]  
+
